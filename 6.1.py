@@ -11,10 +11,10 @@ class Password:
     
     def generate(self):
         password = ''
-        for stroka in self.tuple_of_strs:
+        for stroka in self.tuple_of_strs:               #три символа
             password += ''.join(secrets.choice(stroka))
-        for i in range(self.length - len(self.tuple_of_strs)):
-            password += ''.join(secrets.choice(self.signs_list))
+        for i in range(self.length - len(self.tuple_of_strs)): 
+            password += ''.join(secrets.choice(self.signs_list)) #остальные символы
         return password   
 parser = argparse.ArgumentParser(
     prog = 'PasswordGeneration',
@@ -29,7 +29,7 @@ parser.add_argument('-l', '--length', #длина паролей
                             type = int,
                             required = True,
                             help = 'passwords length')
-parser.add_argument('Aa1',
+parser.add_argument('Aa1',                     #параметр генерации
                         type = str,
                         help = 'using alphabet')
 abc = 'abcdefghijklmnopqrstuvwxyz'
@@ -44,7 +44,7 @@ for i in parser.parse_args().Aa1:
     elif i == '1':
         lst.append(numbers)
     else:
-        print('Был введён непредусмотренный символ, но ладно')
+        print('Введён непредусмотренный символ')
 parol = Password(tuple_of_strs=tuple(lst), length=parser.parse_args().length)
-for i in range(parser.parse_args().quantity):
+for i in range(parser.parse_args().quantity):  #сгенирировать заданное кол-во паролей
     print(parol.generate())

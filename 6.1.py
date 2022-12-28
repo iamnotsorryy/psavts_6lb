@@ -7,7 +7,7 @@ class Password:
         self.signs_list = ''
         for i in tuple_of_strs:
             self.signs_list += ''.join(i)
-        self.signs_list = list(self.signs_list)
+        self.signs_list = list(self.signs_list) #нумерация
     
     def generate(self):
         password = ''
